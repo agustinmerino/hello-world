@@ -17,7 +17,7 @@ pipeline {
               expression {
                 currentBuild.result == null || currentBuild.result == 'SUCCESS' 
               }
-            }
+            } 
             steps {
                 deploy adapters: [tomcat8(credentialsId: 'tomcat_user', path: '', url: 'http://54.196.50.97:8080')], contextPath: 'webapp', war: '**/*.war'
             }            
