@@ -1,0 +1,20 @@
+---
+
+- hosts: all
+  become: ture
+
+  tasks:
+  - name: create docker image using war file
+    command: docker build -t simple-devops-image:latest .
+    args:
+       chdir: /opt/docker
+
+  - name: tag docker image
+    command: docker tag simple-devops-image amerinocaro/simple-devops-image:latest
+
+  - name: push image on to dockerhub
+    command: docker push amerinocaro/simple-devops-image
+
+  - name: remove docker images from ansible server
+    command: docker rmi amerinocaro/simple-devops-image simple-devops-image:latest
+    ignore_errors: yes

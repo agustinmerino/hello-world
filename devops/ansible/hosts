@@ -1,0 +1,5 @@
+[ansible]
+localhost
+
+[hosts]
+18.212.197.58

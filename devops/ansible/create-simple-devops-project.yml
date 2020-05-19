@@ -1,0 +1,23 @@
+---
+    - hosts: all
+      become: ture
+    
+    
+      tasks:
+      - name: stop docker container
+        command: docker stop simple-devops-container
+        ignore_errors: yes
+    
+      - name: remove stopped container
+        command: docker rm simple-devops-container
+        ignore_errors: yes
+    
+      - name: remove docker images
+        command: docker rmi amerinocaro/simple-devops-image:latest
+        ignore_errors: yes
+    
+      - name: pull docker image from dockerhub
+        command: docker pull amerinocaro/simple-devops-image:latest
+    
+      - name: create container using simple-devops-image
+        command: docker run -d --name simple-devops-container -p 8080:8080 amerinocaro/simple-devops-image:latest
