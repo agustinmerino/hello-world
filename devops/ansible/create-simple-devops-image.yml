@@ -5,10 +5,10 @@
 
   tasks:
   - name: delete war file 
-    command: sudo rm -f webapp.war 
+    command: rm -f webapp.war 
 
   - name: copy war file 
-    command: sudo cp ../../webapp/target/webapp.war .
+    command: cp ../../webapp/target/webapp.war .
 
   - name: create docker image using war file
     command: docker build -t simple-devops-image:latest .
