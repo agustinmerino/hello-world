@@ -19,7 +19,8 @@ pipeline {
               }
             } 
             steps {
-                sh 'ansible --version'
+                sh 'cd devops/ansible'
+                sh ''
             }            
         }       
 
