@@ -21,6 +21,7 @@ pipeline {
             steps {
                 dir("devops/ansible") {
                     sh "pwd"
+                    sh "whoami"
                     sh 'ansible-playbook -i hosts create-simple-devops-image.yml'
                 }
                 
