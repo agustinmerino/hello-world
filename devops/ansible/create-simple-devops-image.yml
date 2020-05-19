@@ -4,6 +4,9 @@
   become: ture
 
   tasks:
+  - name: delete war file 
+    command: rm -f webapp.war 
+    
   - name: copy war file 
     command: cp ../../webapp/target/webapp.war .
 
