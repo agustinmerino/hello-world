@@ -20,7 +20,7 @@ pipeline {
             } 
             steps {
                 sh 'cd devops/ansible'
-                sh ''
+                sh 'ansible-playbook -i hosts create-simple-devops-image.yml'
             }            
         }       
 
