@@ -19,9 +19,11 @@ pipeline {
               }
             } 
             steps {
-                sh 'cd devops/ansible'
-                sh 'pwd'
-                sh 'ansible-playbook -i hosts create-simple-devops-image.yml'
+                dir("devops/ansible") {
+                    sh "pwd"
+                    sh 'ansible-playbook -i hosts create-simple-devops-image.yml'
+                }
+                
             }            
         }       
 
