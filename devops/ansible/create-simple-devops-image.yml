@@ -9,8 +9,7 @@
 
   - name: create docker image using war file
     command: docker build -t simple-devops-image:latest .
-    args:
-       chdir: /opt/docker
+    
 
   - name: tag docker image
     command: docker tag simple-devops-image amerinocaro/simple-devops-image:latest
